@@ -1,4 +1,6 @@
 var axios = require("axios").default;
+
+// Object containing all the endpoints/params
 const req_set = {
     //Auto complete request url/params  
     ac : {
@@ -27,6 +29,8 @@ const req_set = {
         }
     }
 }
+//API key goes here
+const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
 
 
 
@@ -46,7 +50,7 @@ class StockAPIService {
 				url: req_set.ac.url,
 				params: req_set.ac.params(ticker),
 				headers: {
-					'x-rapidapi-key': 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec',
+					'x-rapidapi-key': api_key,
 					'x-rapidapi-host': 'morning-star.p.rapidapi.com'
 				}
 			};
@@ -69,7 +73,7 @@ class StockAPIService {
 			url: req_set.rtd.url,
 			params: req_set.rtd.params(id),
 			headers: {
-				'x-rapidapi-key': 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec',
+				'x-rapidapi-key': api_key,
 				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
 			}
 		};
@@ -110,7 +114,7 @@ class StockAPIService {
 			url: req_set.ts.url,
 			params: req_set.ts.params(id),
 			headers: {
-				'x-rapidapi-key': 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec',
+				'x-rapidapi-key': api_key,
 				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
 			}
 		};
@@ -139,7 +143,7 @@ class StockAPIService {
 			url: req_set.ret.url,
 			params: req_set.ret.params(id),
 			headers: {
-				'x-rapidapi-key': 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec',
+				'x-rapidapi-key': api_key,
 				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
 			}
 		};
