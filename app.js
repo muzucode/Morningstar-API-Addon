@@ -1,6 +1,6 @@
-import sas from './Morningstar-API-Addon.mjs';
+import sas from './Morningstar-API-Addon.js';
 
 sas.getReturns('AAPL');
 
-sas.getStockData('AAPL');
+await sas.getStockData('AAPL');
 
