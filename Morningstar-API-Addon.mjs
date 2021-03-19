@@ -1,4 +1,4 @@
-var axios = require("axios").default;
+import axios from 'axios';
 
 // Object containing all the endpoints/params
 const req_set = {
@@ -164,13 +164,11 @@ class StockAPIService {
 
 };
 
-const sas = new StockAPIService();
-
-sas.getReturns('AAPL');
+export default new StockAPIService();
 
 
 
-// export default new StockAPIService();
+
 
 // Take in user input ("Apple")
 

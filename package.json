@@ -1,0 +1,20 @@
+{
+  "name": "morningstar-api-addon",
+  "version": "1.0.0",
+  "description": "Morningstar API Addon",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muzucode/Morningstar-API-Addon.git"
+  },
+  "author": "Muzu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muzucode/Morningstar-API-Addon/issues"
+  },
+  "homepage": "https://github.com/muzucode/Morningstar-API-Addon#readme",
+  "type":"module"
+}
