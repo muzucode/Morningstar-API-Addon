@@ -68,7 +68,6 @@ class StockAPIService {
 			};
 
 		var perfID;
-
 		await axios.request(options).then(function (response) {
 				perfID = response.data.results[0].performanceId;
 		}).catch(function (error) {
@@ -147,6 +146,7 @@ class StockAPIService {
 
     };
 
+	// Get returns data
     async getReturns(ticker){
         const id = await this.getID(ticker);
 
@@ -173,6 +173,7 @@ class StockAPIService {
 		return(data);
 	};
 
+	//Get list of news sources and headlines
 	async getNewsList(ticker){
 		const id = await this.getID(ticker);
 		
@@ -200,6 +201,7 @@ class StockAPIService {
 		return(data);
 	};
 
+	//Get specific news article (content is separated into objects)
 	async getNewsDetails(id, sourceId){
 		
 		
