@@ -27,7 +27,13 @@ const req_set = {
         params: (id) => {
             return({performanceIds: id})
         }
-    }
+    },
+	nlist : {
+		url: 'https://morning-star.p.rapidapi.com/news/list',
+        params: (id) => {
+            return({performanceId: id})
+        }
+	},
 }
 //API key goes here
 const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
@@ -148,19 +154,49 @@ class StockAPIService {
 			}
 		};
 
-          var ret;
-          await axios.request(options).then(function (response) {
-              ret = response.data;
-            //   console.log(response.data);
-          }).catch(function (error) {
-              console.error(error);
-          });
+		var ret;
+		await axios.request(options).then(function (response) {
+			ret = response.data;
+		//   console.log(response.data);
+		}).catch(function (error) {
+			console.error(error);
+		});
 
-          var data = this.onlyItem(ret)
-          console.log(data);
-          return(data);
-    };
+		var data = this.onlyItem(ret)
+		console.log(data);
+		return(data);
+	};
 
+	async getNewsList(ticker){
+		const id = await this.getID(ticker);
+		
+        var options = {
+			method: 'GET',
+			url: req_set.nlist.url,
+			params: req_set.nlist.params(id),
+			headers: {
+				'x-rapidapi-key': api_key,
+				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		};
+
+		var nlist;
+		await axios.request(options).then(function (response) {
+			nlist = response.data;
+		//   console.log(response.data);
+		}).catch(function (error) {
+			console.error(error);
+		});
+
+	
+		var data = nlist;
+		console.log(data);
+		return(data);
+	};
+
+	async getNewsDetails(id){
+
+	};
 
 };
 

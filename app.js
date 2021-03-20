@@ -1,6 +1,5 @@
 import sas from './Morningstar-API-Addon.js';
 
-sas.getReturns('AAPL');
+sas.getNewsList('tsla');
 
-await sas.getStockData('AAPL');
 
