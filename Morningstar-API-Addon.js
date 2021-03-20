@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+//API key goes here
+const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
+
 // Object containing all the endpoints/params
 const req_set = {
     //Auto complete request url/params  
@@ -34,10 +37,13 @@ const req_set = {
             return({performanceId: id})
         }
 	},
-}
-//API key goes here
-const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
-
+	nd:{
+		url: 'https://morning-star.p.rapidapi.com/news/get-details',
+        params: (id,sourceId) => {
+            return({id: id, sourceId: sourceId})
+        }
+	}
+};
 
 
 class StockAPIService {
@@ -194,8 +200,29 @@ class StockAPIService {
 		return(data);
 	};
 
-	async getNewsDetails(id){
+	async getNewsDetails(id, sourceId){
+		
+		
+		var options = {
+			method: 'GET',
+			url: req_set.nd.url,
+			params: req_set.nd.params(id, sourceId),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		var nd;
+		await axios.request(options).then(function (response) {
+			nd = response.data;
+		}).catch(function (error) {
+			console.error(error);
+		});
 
+		var data = nd;
+		console.log(data);
+		return(data);
 	};
 
 };
