@@ -16,8 +16,8 @@ const req_set = {
     rtd : {
         url: 'https://morning-star.p.rapidapi.com/market/v2/get-realtime-data',
         params: (id) => {
-					return({performanceIds: id})
-				}
+			return({performanceIds: id})
+		}
     },
     ts : {
         url: 'https://morning-star.p.rapidapi.com/market/v2/get-time-series',
