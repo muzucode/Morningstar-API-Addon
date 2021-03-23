@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
+const api_key = '[API KEY GOES HERE]';
 
 // Object containing all the endpoints/params
 const req_set = {
@@ -195,10 +195,22 @@ class StockAPIService {
 			console.error(error);
 		});
 
-	
+		// Set return data
 		var data = nlist;
-		console.log(data);
-		return(data);
+		// console.log(data);
+
+		async function createHeadlines(){
+			var headlines = [];	
+			await nlist.forEach(element => {
+				headlines.push({
+					sourceName: element.sourceName, 
+					title: element.title
+				})
+			});
+			return(headlines);
+		}
+
+		return({data: data, headlines: createHeadlines()});
 	};
 
 	//Get specific news article (content is separated into objects)

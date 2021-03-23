@@ -1,5 +1,20 @@
 import sas from './Morningstar-API-Addon.js';
 
-sas.getNewsList('tsla');
+var headlines = [];
+sas.getNewsList('tsla')
+.then((res) => {
+    return(res.headlines)
+})
+.then((res) => {
+    res.forEach((headline) => {
+        headlines.push(headline);
+    });
+    console.log(headlines);
+});
+    
 
 
+
+
+
+//await console.log(headlines);
