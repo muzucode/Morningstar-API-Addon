@@ -1,19 +1,17 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = '[API KEY GOES HERE]';
+const api_key = '[REDACTED]';
 
-// Object containing all the endpoints/params
+//Object containing all the endpoints/params
 const req_set = {
-    //Auto complete request url/params  
     ac : {
         url: 'https://morning-star.p.rapidapi.com/market/v2/auto-complete',
         params: (ticker) => {
             return({q : ticker})
         },
     },
-	//Realtime data request url/params
-    rtd : {
+    rtdm : {
         url: 'https://morning-star.p.rapidapi.com/market/v2/get-realtime-data',
         params: (id) => {
 			return({performanceIds: id})
@@ -42,6 +40,27 @@ const req_set = {
         params: (id,sourceId) => {
             return({id: id, sourceId: sourceId})
         }
+	},
+	mov:{
+		url: 'https://morning-star.p.rapidapi.com/market/v2/get-movers',
+	},
+	qts:{
+		url: 'https://morning-star.p.rapidapi.com/market/v2/get-quotes',
+		params: (id) => {
+            return({performanceIds: id})
+        },
+	},
+	glb:{
+		url: 'https://morning-star.p.rapidapi.com/market/get-global-indices',
+	},
+	sum:{
+		url: 'https://morning-star.p.rapidapi.com/market/get-summary',
+	},
+	rtds:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-realtime-data',
+        params: (id) => {
+			return({performanceId: id})
+		}
 	}
 };
 
@@ -77,12 +96,41 @@ class StockAPIService {
 		return perfID;
 	};
 
+
+
+	//Get returns data
+    async getReturns(ticker){
+        const id = await this.getID(ticker);
+
+        var options = {
+			method: 'GET',
+			url: req_set.ret.url,
+			params: req_set.ret.params(id),
+			headers: {
+				'x-rapidapi-key': api_key,
+				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		};
+
+		var ret;
+		await axios.request(options).then(function (response) {
+			ret = response.data;
+		//  console.log(response.data);
+		}).catch(function (error) {
+			console.error(error);
+		});
+
+		var data = this.onlyItem(ret)
+		console.log(data);
+		return(data);
+	};
+
     //Get realtime data of performance ID (1 request)
-	async getRtd(id) {
+	async getRtdMarketID(id) {
 		var options = {
 			method: 'GET',
-			url: req_set.rtd.url,
-			params: req_set.rtd.params(id),
+			url: req_set.rtdm.url,
+			params: req_set.rtdm.params(id),
 			headers: {
 				'x-rapidapi-key': api_key,
 				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
@@ -92,7 +140,7 @@ class StockAPIService {
 		var rtd;
 		await axios.request(options).then(function (response) {
 			rtd = response.data;
-			// console.log(response.data);
+			//console.log(response.data);
 		}).catch(function (error) {
 				console.error(error);
 		});
@@ -102,11 +150,11 @@ class StockAPIService {
 	};
 
     //Get realtime data of ticker (2 requests)
-	async getStockData(ticker){
+	async getRtdMarket(ticker){
 		var perfID = await this.getID(ticker);
-		var rtd = await this.getRtd(perfID);
+		var rtd = await this.getRtdMarketID(perfID);
 
-		// Get the values of the object in RTD
+		//Get the values of the object in RTD
 		var vals = Object.values(rtd);
 		var data = vals[0]
         console.log(data)
@@ -133,7 +181,7 @@ class StockAPIService {
         var ts;
         await axios.request(options).then(function (response) {
 			ts = response.data;
-			// console.log(response.data);
+			//console.log(response.data);
 		}).catch(function (error) {
 				console.error(error);
 		});
@@ -146,31 +194,116 @@ class StockAPIService {
 
     };
 
-	// Get returns data
-    async getReturns(ticker){
-        const id = await this.getID(ticker);
-
-        var options = {
+	//Get movers data
+	async getMovers(){
+		var options = {
 			method: 'GET',
-			url: req_set.ret.url,
-			params: req_set.ret.params(id),
+			url: req_set.mov.url,
 			headers: {
 				'x-rapidapi-key': api_key,
 				'x-rapidapi-host': 'morning-star.p.rapidapi.com'
 			}
 		};
 
-		var ret;
+		var data;
 		await axios.request(options).then(function (response) {
-			ret = response.data;
-		//   console.log(response.data);
+			console.log(response.data);
+			data = response.data;
 		}).catch(function (error) {
 			console.error(error);
 		});
 
-		var data = this.onlyItem(ret)
-		console.log(data);
 		return(data);
+	};
+	
+	async getQuotes(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.qts.url,
+			params: req_set.qts.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getGlobalIndices(){
+		const options = {
+			method: 'GET',
+			url: req_set.glb.url,
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getSummary(){
+		const options = {
+			method: 'GET',
+			url: req_set.sum.url,
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getRtdStock(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.rtds.url,
+			params: req_set.rtds.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
 	};
 
 	//Get list of news sources and headlines
@@ -190,14 +323,14 @@ class StockAPIService {
 		var nlist;
 		await axios.request(options).then(function (response) {
 			nlist = response.data;
-		//   console.log(response.data);
+		//  console.log(response.data);
 		}).catch(function (error) {
 			console.error(error);
 		});
 
-		// Set return data
+		//Set return data
 		var data = nlist;
-		// console.log(data);
+		//console.log(data);
 
 		async function createHeadlines(){
 			var headlines = [];	
@@ -239,6 +372,9 @@ class StockAPIService {
 		return(data);
 	};
 
+
+
+
 };
 
 export default new StockAPIService();
@@ -247,6 +383,6 @@ export default new StockAPIService();
 
 
 
-// Take in user input ("Apple")
+//Take in user input ("Apple")
 
-// Auto complete stock (get performance ID) --> results[0].performanceId
+//Auto complete stock (get performance ID) --> results[0].performanceId
