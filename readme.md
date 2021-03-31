@@ -4,7 +4,9 @@
 
 ## Purpose
 
-This addon is intended to help with accessing the Morningstar API provided by APIdojo on RapidAPI.com.  Additionally, documentation for accessing the endpoints is provided below.  
+This addon is intended to help with accessing the Morningstar API provided by APIdojo on RapidAPI.com.  Additionally, documentation for accessing the endpoints is provided below. 
+
+Much of the API requires the user to know _performance IDs_ of securities in order to get info on them.  A big benefit of this addon is that the performance ID retrieval process is automated and allows for seamless requesting of _tickers_ rather than _performance IDs_.  On the contrary, a couple downsides to this method are listed in the _Example of use_ section.
 
 **Note: There is a chance that some methods within the addon may not work over time depending on updates made to the API so I will be sure to make updates if requests come in. Thanks for understanding!**
 
