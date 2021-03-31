@@ -14,7 +14,7 @@ The API can be found here: https://rapidapi.com/apidojo/api/morning-star/endpoin
 
 ## Example of use (Getting time series data of a security)
 
-### Before 
+### Before (RapidAPI's example request)
 ```javascript
 import axios from "axios";
 
@@ -34,7 +34,7 @@ axios.request(options).then(function (response) {
 	console.error(error);
 });
 ```
-### After
+### After (Addon's request)
 ```javascript
 import sas from './Morningstar-API-Addon.js';
 
