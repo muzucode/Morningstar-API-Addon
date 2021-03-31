@@ -61,7 +61,91 @@ const req_set = {
         params: (id) => {
 			return({performanceId: id})
 		}
-	}
+	},
+	mcrtd:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-mini-chart-realtime-data',
+        params: (id) => {
+			return({performanceId: id})
+		}
+	},
+	pfv:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-price-fair-value',
+        params: (id) => {
+			return({performanceId: id})
+		}
+	},
+	kst:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-key-stats',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	arpt:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-analysis-report',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	ttr:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-trailing-total-returns',
+        params: (id) => {
+			return({performanceId: id, dataType: 'd'})
+		}	
+	},
+	ad:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-analysis-data',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	fin:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-financials',
+        params: (id) => {
+			return({performanceId: id, interval: 'annual', reportType: 'A'})
+		}	
+	},
+	exec:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-executive',
+        params: (id) => {
+			return({performanceId: id, keyExecutives:'keyExecutives'})
+		}	
+	},
+	comp:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-competitors',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	prof:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-profile',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	ownr:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-ownership',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	div:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-dividends',
+        params: (id) => {
+			return({performanceId: id})
+		}		
+	},
+	shrt:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-short-interest',
+        params: (id) => {
+			return({performanceId: id})
+		}		
+	},
+	hist:{
+		url: 'https://morning-star.p.rapidapi.com/stock/get-histories',
+        params: (id) => {
+			return({PerformanceId: id})
+		}		
+	},
 };
 
 
@@ -95,8 +179,6 @@ class StockAPIService {
 
 		return perfID;
 	};
-
-
 
 	//Get returns data
     async getReturns(ticker){
@@ -306,6 +388,349 @@ class StockAPIService {
 		  return(data);
 	};
 
+	async getMiniChart(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.mcrtd.url,
+			params: req_set.mcrtd.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getPriceFairValue(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.pfv.url,
+			params: req_set.pfv.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getKeyStats(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.kst.url,
+			params: req_set.kst.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getAnalysisReport(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.arpt.url,
+			params: req_set.arpt.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getTrailingTotalReturns(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.ttr.url,
+			params: req_set.ttr.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getAnalysisData(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.ad.url,
+			params: req_set.ad.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getFinancials(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.fin.url,
+			params: req_set.fin.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getExecutives(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.exec.url,
+			params: req_set.exec.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getCompetitors(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.comp.url,
+			params: req_set.comp.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getProfile(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.prof.url,
+			params: req_set.prof.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getOwnership(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.ownr.url,
+			params: req_set.ownr.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getDividends(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.div.url,
+			params: req_set.div.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getShortInterest(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.shrt.url,
+			params: req_set.shrt.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getHistories(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.hist.url,
+			params: req_set.hist.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+
+
+
+
+
+
+
 	//Get list of news sources and headlines
 	async getNewsList(ticker){
 		const id = await this.getID(ticker);
@@ -372,7 +797,7 @@ class StockAPIService {
 		return(data);
 	};
 
-
+	
 
 
 };

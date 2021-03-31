@@ -13,7 +13,7 @@ import sas from './Morningstar-API-Addon.js';
 //     console.log(headlines);
 // });
     
-sas.getRtdStock('tsla');
+sas.getHistories('AAPL');
 
 
 
