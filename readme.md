@@ -10,11 +10,36 @@ This addon is intended to help with accessing the Morningstar API provided by AP
 
 The API can be found here: https://rapidapi.com/apidojo/api/morning-star/endpoints
 
+## Example of use
+
+### Before
+```javascript
+import axios from "axios";
+
+const options = {
+  method: 'GET',
+  url: 'https://morning-star.p.rapidapi.com/market/v2/get-time-series',
+  params: {performanceIds: '0P0000OQN8,0P000000GY'},
+  headers: {
+    'x-rapidapi-key': '[API KEY GOES HERE]',
+    'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+```
+
 ## Getting started
 
 1. Clone the repository
-2. At the top of _Morningstar-API-Addon.js_ , input your API key (must get it through RapidAPI) within the brackets here: ``` const api_key = '[API KEY GOES HERE]'; ```.
-3. Utilize any of the methods in _Morningstar-API-Addon.js_ by calling them through the ``` sas ``` variable in _app.js_.  ``` sas ``` is an instance of the ``` StockAPIService ``` class found in _Morningstar-API-Addon.js_.
+2. At the top of _Morningstar-API-Addon.js_ , input your API key (must get it through RapidAPI) within the brackets here: ```javascript const api_key = '[API KEY GOES HERE]'; ```.
+3. Utilize any of the methods in _Morningstar-API-Addon.js_ by calling them through the ```javascript sas ``` variable in _app.js_.  ```javascript sas ``` is an instance of the ```javascript StockAPIService ``` class found in _Morningstar-API-Addon.js_.
+
+
 
 ## Documentation
 
