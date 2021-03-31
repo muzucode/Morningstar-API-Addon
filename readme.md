@@ -53,8 +53,8 @@ sas.getTimeSeries('AAPL');
 ## Getting started
 
 1. Clone the repository
-2. At the top of _Morningstar-API-Addon.js_ , input your API key (must get it through RapidAPI) within the brackets here: ```javascript const api_key = '[API KEY GOES HERE]'; ```.
-3. Utilize any of the methods in _Morningstar-API-Addon.js_ by calling them through the ```javascript sas ``` variable in _app.js_.  ```javascript sas ``` is an instance of the ```javascript StockAPIService ``` class found in _Morningstar-API-Addon.js_.
+2. At the top of _Morningstar-API-Addon.js_ , input your API key (must get it through RapidAPI) within the brackets here: ``` const api_key = '[API KEY GOES HERE]'; ```.
+3. Utilize any of the methods in _Morningstar-API-Addon.js_ by calling them through the ```javascript sas ``` variable in _app.js_.  ``` sas ``` is an instance of the ``` StockAPIService ``` class found in _Morningstar-API-Addon.js_.
 
 
 
