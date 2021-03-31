@@ -13,9 +13,4 @@ import sas from './Morningstar-API-Addon.js';
 //     console.log(headlines);
 // });
     
-sas.getHistories('AAPL');
-
-
-
-
-//await console.log(headlines);
+sas.getSplits('AAPL');

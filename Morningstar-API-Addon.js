@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = '[REDACTED]';
+const api_key = '[API KEY GOES HERE]';
 
 //Object containing all the endpoints/params
 const req_set = {
@@ -144,6 +144,54 @@ const req_set = {
 		url: 'https://morning-star.p.rapidapi.com/stock/get-histories',
         params: (id) => {
 			return({PerformanceId: id})
+		}		
+	},
+	splt:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-splits',
+        params: (id) => {
+			return({performanceId: id})
+		}		
+	},
+	mcqt:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-mini-chart-quote',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	valu:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-valuation',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	opp:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-operating-performance',
+        params: (id) => {
+			return({performanceId: id})
+		}	
+	},
+	ins:{
+		url: 'https://morning-star.p.rapidapi.com/stock/v2/get-instruments',
+        params: (id) => {
+			return({instrumentIds: id})
+		}	
+	},
+	det:{
+		url: 'https://morning-star.p.rapidapi.com/stock/get-detail',
+        params: (id) => {
+			return({PerformanceId: id})
+		}		
+	},
+	artl:{
+		url: 'https://morning-star.p.rapidapi.com/articles/list',
+        params: (id) => {
+			return({performanceId: id})
+		}		
+	},
+	artd:{
+		url: 'https://morning-star.p.rapidapi.com/articles/get-details',
+        params: (id) => {
+			return({id: id})
 		}		
 	},
 };
@@ -699,7 +747,7 @@ class StockAPIService {
 
 		  return(data);
 	};
-
+	
 	async getHistories(ticker){
 		const id = await this.getID(ticker);
 
@@ -724,6 +772,221 @@ class StockAPIService {
 		  return(data);
 	};
 
+	async getSplits(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.splt.url,
+			params: req_set.splt.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getMiniChartQuote(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.mcqt.url,
+			params: req_set.mcqt.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getMiniChartQuote(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.mcqt.url,
+			params: req_set.mcqt.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getValuation(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.valu.url,
+			params: req_set.valu.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getOperatingPerformance(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.opp.url,
+			params: req_set.opp.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getInstruments(insID){
+		const id = insID;
+
+		const options = {
+			method: 'GET',
+			url: req_set.ins.url,
+			params: req_set.ins.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getDetail(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.det.url,
+			params: req_set.det.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getArticlesList(ticker){
+		const id = await this.getID(ticker);
+
+		const options = {
+			method: 'GET',
+			url: req_set.artl.url,
+			params: req_set.artl.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
+
+	async getArticlesDetails(alID){
+		const id = alID;
+
+		const options = {
+			method: 'GET',
+			url: req_set.artd.url,
+			params: req_set.artd.params(id),
+			headers: {
+			  'x-rapidapi-key': api_key,
+			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
+			}
+		  };
+		  
+		  var data;
+		  await axios.request(options).then(function (response) {
+			data = response.data;
+			console.log(response.data);
+		  }).catch(function (error) {
+			console.error(error);
+		  });
+
+		  return(data);
+	};
 
 
 
