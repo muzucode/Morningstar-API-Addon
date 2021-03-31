@@ -41,6 +41,11 @@ import sas from './Morningstar-API-Addon.js';
 sas.getTimeSeries('AAPL');
 
 ```
+### Benefits
+1. Concise requests
+2. Use of tickers as opposed to performance IDs
+3. Readable code
+
 ### Notes (IMPORTANT)
 1. Any request involving a ticker **will almost always use up two requests instead of one** (in case you are worried about requests made to the API for pricing purposes).  The reason for this is that the ticker must first be cross-referenced to a _performance ID_ (the API primarily runs off of performance IDs rather than tickers).
 2. Many of the methods in this addon only allow get requests of a single ticker.  This is different from the API as you are able to request multiple performance IDs directly through the API.  **A future update will allow for _ticker clustering_.  In other words, you will be able to request multiple tickers at a time.**
