@@ -10,9 +10,9 @@ This addon is intended to help with accessing the Morningstar API provided by AP
 
 The API can be found here: https://rapidapi.com/apidojo/api/morning-star/endpoints
 
-## Example of use
+## Example of use (Getting time series data of a security)
 
-### Before
+### Before 
 ```javascript
 import axios from "axios";
 
@@ -31,6 +31,13 @@ axios.request(options).then(function (response) {
 }).catch(function (error) {
 	console.error(error);
 });
+```
+### After
+```javascript
+import sas from './Morningstar-API-Addon.js';
+
+sas.getTimeSeries('AAPL');
+
 ```
 
 ## Getting started
