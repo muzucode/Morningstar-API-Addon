@@ -61,7 +61,9 @@ sas.getTimeSeries('AAPL');
 ## Documentation
 
 ### ```StockAPIService.getID(ticker)```
+
 ```ticker``` | Type: ```String```
+
 Returns: ```String```
 
 #### Example input
@@ -70,7 +72,9 @@ sas.getID('AAPL');
 ```
 
 #### Example output
-```0P000000GY```
+```javascript
+0P000000GY
+```
 
 ### ```StockAPIService.getReturns(ticker)```
 
