@@ -236,3 +236,41 @@ sas.getMovers();
 }
 ```
 
+
+### ```StockAPIService.getQuotes(ticker)```
+
+Get time-series data of a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getTimeSeries('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  '0P000000GY': [
+    {
+      datetime: '2021-04-01T15:30:00Z',
+      volume: 569393,
+      lastPrice: 123.175,
+      openPrice: 123.2751,
+      lowPrice: 123.17,
+      highPrice: 123.31
+    },
+    {
+      datetime: '2021-04-01T15:25:00Z',
+      volume: 535491,
+      lastPrice: 123.2783,
+      openPrice: 123.22,
+      lowPrice: 123.19,
+      highPrice: 123.34
+    },
+    ...
+  ]
+}
+```
