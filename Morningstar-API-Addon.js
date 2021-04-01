@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = '[API KEY GOES HERE]';
+const api_key = 'e7d7f3ec36msh1ef294274676980p1b53dfjsn9c0f6bb4d0ec';
 
 //Object containing all the endpoints/params
 const req_set = {
@@ -199,13 +199,6 @@ const req_set = {
 
 class StockAPIService {
 
-    //(Utility method) Selects the sole object and its values
-    onlyItem(obj){
-        var vals = Object.values(obj);
-        var data = vals[0];
-        return(data)
-    }
-
     //Get performance ID of ticker (1 request)
 	async getID(ticker) {
 		var options = {
@@ -250,9 +243,9 @@ class StockAPIService {
 			console.error(error);
 		});
 
-		var data = this.onlyItem(ret)
-		console.log(data);
-		return(data);
+		
+		console.log(ret);
+		return(ret);
 	};
 
     //Get realtime data of performance ID (1 request)
@@ -316,11 +309,11 @@ class StockAPIService {
 				console.error(error);
 		});
 
-        var data = this.onlyItem(ts)
+        
 
-        console.log(data);
+        console.log(ts);
 
-        return(data);
+        return(ts);
 
     };
 
