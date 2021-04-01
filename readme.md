@@ -247,30 +247,32 @@ Returns: ```Object```
 
 #### Example input:
 ```javascript 
-sas.getTimeSeries('AAPL');
+sas.getQuotes('AAPL');
 ```
 
 #### Example output:
 ```javascript
 {
-  '0P000000GY': [
-    {
-      datetime: '2021-04-01T15:30:00Z',
-      volume: 569393,
-      lastPrice: 123.175,
-      openPrice: 123.2751,
-      lowPrice: 123.17,
-      highPrice: 123.31
-    },
-    {
-      datetime: '2021-04-01T15:25:00Z',
-      volume: 535491,
-      lastPrice: 123.2783,
-      openPrice: 123.22,
-      lowPrice: 123.19,
-      highPrice: 123.34
-    },
-    ...
-  ]
+  '0P000000GY': {
+    name: 'Apple Inc',
+    exchange: 'XNAS',
+    region: 'USA',
+    ticker: 'AAPL',
+    price: 122.67,
+    priceChange: 0.52,
+    percentChange: 0.4257,
+    openPrice: 123.66,
+    volume: 55853864,
+    yesterdayPrice: 122.15,
+    dayHigh: 124.18,
+    dayLow: 122.57,
+    fiftyTwoWeekHigh: 145.09,
+    fiftyTwoWeekLow: 59.225,
+    currency: 'USD',
+    marketPhase: 'Open',
+    activityTimeUTC: '2021-04-01T19:03:11Z',
+    exchangeActivityTimeLabel: '04/01/2021 03:03 PM EDT',
+    securityId: '0P000000GY'
+  }
 }
 ```
