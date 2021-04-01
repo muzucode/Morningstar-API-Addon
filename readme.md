@@ -61,9 +61,12 @@ sas.getTimeSeries('AAPL');
 ## Documentation
 
 ### ```StockAPIService.getID(ticker)```
-```ticker``` <String>
-Returns <String>
-	
+```ticker``` | Type: ```String```
+Returns: ```String```
+
+#### Example input
+```javascript sas.getID('AAPL');```
+
 #### Example output
 ```0P000000GY```
 
