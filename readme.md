@@ -65,7 +65,9 @@ sas.getTimeSeries('AAPL');
 Returns: ```String```
 
 #### Example input
-```javascript sas.getID('AAPL');```
+```javascript 
+sas.getID('AAPL');
+```
 
 #### Example output
 ```0P000000GY```
