@@ -62,6 +62,8 @@ sas.getTimeSeries('AAPL');
 
 ### ```StockAPIService.getReturns(ticker)```
 
+Get returns data of a security
+
 ```ticker``` | Type: ```String```
 
 Returns: ```Object```
@@ -84,6 +86,8 @@ sas.getReturns('AAPL');
 ```
 
 ### ```StockAPIService.getRtdMarket(ticker)```
+
+Get real-time data of a security
 
 ```ticker``` | Type: ```String```
 
