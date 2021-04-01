@@ -155,7 +155,7 @@ sas.getTimeSeries('AAPL');
 
 ### ```StockAPIService.getMovers()```
 
-Get _movers_actives, gainers,_ and _losers_ for the day
+Get movers: _actives_, _gainers_, and _losers_ for the day
 
 Returns: ```Object```
 
