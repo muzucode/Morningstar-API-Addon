@@ -82,7 +82,7 @@ sas.getReturns('AAPL');
   marketReturn3Years: 43.701513
 }
 ```
----
+
 ### ```StockAPIService.getRtdMarket(ticker)```
 
 ```ticker``` | Type: ```String```
