@@ -187,8 +187,8 @@ sas.getMovers();
       standardName: 'AMC Entertainment Holdings Inc Class A',
       ticker: 'AMC',
       volume: 37106466
-    },
-    ...
+    }
+],
     gainers: [
     {
       exchange: 'XNAS',
@@ -209,8 +209,8 @@ sas.getMovers();
       standardName: 'Kelly Services Inc Class B',
       ticker: 'KELYB',
       volume: 306382
-    },
-    ...
+    }
+],
     losers: [
     {
       exchange: 'XNAS',
