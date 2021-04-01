@@ -60,3 +60,12 @@ sas.getTimeSeries('AAPL');
 
 ## Documentation
 
+### ```StockAPIService.getID(ticker)```
+```ticker``` <String>
+Returns <String>
+	
+#### Example output
+```0P000000GY```
+
+### ```StockAPIService.getReturns(ticker)```
+
