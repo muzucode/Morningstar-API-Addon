@@ -188,8 +188,8 @@ sas.getMovers();
       ticker: 'AMC',
       volume: 37106466
     }
-],
-    gainers: [
+  ],
+  gainers: [
     {
       exchange: 'XNAS',
       lastPrice: 75.0249,
@@ -210,8 +210,8 @@ sas.getMovers();
       ticker: 'KELYB',
       volume: 306382
     }
-],
-    losers: [
+  ],
+  losers: [
     {
       exchange: 'XNAS',
       lastPrice: 108,
@@ -231,7 +231,7 @@ sas.getMovers();
       standardName: 'Microvision Inc',
       ticker: 'MVIS',
       volume: 17608811
-    },
+    }
   ]
 }
 ```
