@@ -239,7 +239,7 @@ sas.getMovers();
 
 ### ```StockAPIService.getQuotes(ticker)```
 
-Get time-series data of a security
+Get quote data of a security
 
 ```ticker``` | Type: ```String```
 
@@ -275,4 +275,73 @@ sas.getQuotes('AAPL');
     securityId: '0P000000GY'
   }
 }
+```
+
+### ```StockAPIService.getGlobalIndices()```
+
+Get global indices
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getGlobalIndices();
+```
+
+#### Example output:
+```javascript
+{
+  realTimeLastUpdateDate: '2021-04-01T19:24:02.000Z',
+  gmbIndexDataList: [
+    {
+      symbol: '33.10.!MSTAR',
+      ticker: '!MSTAR',
+      exchange: 33,
+      securityType: 10,
+      netChange: 99.57,
+      netChangePer: 0.9854,
+      companyName: 'Morningstar U.S. Market Index',
+      marketStatus: 'Open',
+      currency: 'USD',
+      avgVolume: 0,
+      volume: 0,
+      recentTradingDayOpenPrice: 10171.18,
+      lastClosePrice: 10104.91,
+      lastPrice: 10204.48,
+      lastUpdateDate: '2021-04-01T19:24:02.000Z',
+      lastUpdateTime: '15:24:02.000',
+      priceReturn1Week: 2.6856293,
+      priceReturn1Month: 1.9260728,
+      realTimeLastUpdateDate: '01-04-2021',
+      realTimeLastUpdateTime: '15:24:02.000',
+      isRunning: true
+    },
+    {
+      symbol: '33.10.MSAUAUDP',
+      ticker: 'MSAUAUDP',
+      exchange: 33,
+      securityType: 10,
+      netChange: 18.21,
+      netChangePer: 0.5814,
+      companyName: 'Morningstar Australia Index PR AUD',
+      marketStatus: 'Open',
+      currency: 'AUD',
+      avgVolume: 0,
+      volume: 0,
+      recentTradingDayOpenPrice: 3140.37,
+      lastClosePrice: 3132.33,
+      lastPrice: 3150.54,
+      lastUpdateDate: '2021-04-01T19:23:49.000Z',
+      lastUpdateTime: '15:23:49.000',
+      priceReturn1Week: 0.5010781,
+      priceReturn1Month: 0.5536763,
+      realTimeLastUpdateDate: '01-04-2021',
+      realTimeLastUpdateTime: '15:23:49.000',
+      isRunning: false
+    },
+    ...
+  ]
+}
+    
+
 ```
