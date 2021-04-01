@@ -152,3 +152,87 @@ sas.getTimeSeries('AAPL');
   ]
 }
 ```
+
+### ```StockAPIService.getMovers()```
+
+Get _movers_actives, gainers,_ and _losers_ for the day
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getMovers();
+```
+
+#### Example output:
+```javascript
+{
+  actives: [
+    {
+      exchange: 'XNYS',
+      lastPrice: 39.73,
+      percentChange: 1.9241,
+      performanceId: '0P0001EEPZ',
+      priceChange: 0.75,
+      standardName: 'NIO Inc ADR',
+      ticker: 'NIO',
+      volume: 68835976
+    },
+    {
+      exchange: 'XNYS',
+      lastPrice: 9.8,
+      percentChange: -4.0147,
+      performanceId: '0P00011H0G',
+      priceChange: -0.4099,
+      standardName: 'AMC Entertainment Holdings Inc Class A',
+      ticker: 'AMC',
+      volume: 37106466
+    },
+    ...
+    gainers: [
+    {
+      exchange: 'XNAS',
+      lastPrice: 75.0249,
+      percentChange: 97.3301,
+      performanceId: '0P00013YNE',
+      priceChange: 37.0049,
+      standardName: 'Liberty TripAdvisor Holdings Inc Class B',
+      ticker: 'LTRPB',
+      volume: 333215
+    },
+    {
+      exchange: 'XNAS',
+      lastPrice: 30.19,
+      percentChange: 35.2599,
+      performanceId: '0P0000064Q',
+      priceChange: 7.87,
+      standardName: 'Kelly Services Inc Class B',
+      ticker: 'KELYB',
+      volume: 306382
+    },
+    ...
+    losers: [
+    {
+      exchange: 'XNAS',
+      lastPrice: 108,
+      percentChange: -15.625,
+      performanceId: '0P00001SJ1',
+      priceChange: -20,
+      standardName: 'Discovery Inc Class B',
+      ticker: 'DISCB',
+      volume: 212163
+    },
+    {
+      exchange: 'XNAS',
+      lastPrice: 15.9499,
+      percentChange: -14.0167,
+      performanceId: '0P000003MK',
+      priceChange: -2.6001,
+      standardName: 'Microvision Inc',
+      ticker: 'MVIS',
+      volume: 17608811
+    },
+  ]
+}
+```
+
