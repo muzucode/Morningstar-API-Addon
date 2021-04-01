@@ -66,12 +66,12 @@ sas.getTimeSeries('AAPL');
 
 Returns: ```Object```
 
-#### Example input
+#### Example input:
 ```javascript 
 sas.getReturns('AAPL');
 ```
 
-#### Example output
+#### Example output:
 ```javascript
 {
   marketReturn5Years: 35.762864,
@@ -83,3 +83,30 @@ sas.getReturns('AAPL');
 }
 ```
 
+### ```StockAPIService.getRtdMarket(ticker)```
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getRtdMarket('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  netChange: { value: 1.2094, filtered: false },
+  previousClosePrice: { value: 122.15, filtered: false },
+  adjustedClosePrice: { value: 122.15, filtered: false },
+  name: { value: 'Apple', filtered: false },
+  percentNetChange: { value: 0.9901, filtered: false },
+  tradingStatus: { value: 'Open', filtered: false },
+  lastPrice: {
+    value: 123.3594,
+    filtered: false,
+    date: { value: '2021-04-01T11:36:55-04:00', filtered: false }
+  }
+}
+```
