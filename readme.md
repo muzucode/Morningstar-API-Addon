@@ -60,21 +60,26 @@ sas.getTimeSeries('AAPL');
 
 ## Documentation
 
-### ```StockAPIService.getID(ticker)```
+### ```StockAPIService.getReturns(ticker)```
 
 ```ticker``` | Type: ```String```
 
-Returns: ```String```
+Returns: ```Object```
 
 #### Example input
 ```javascript 
-sas.getID('AAPL');
+sas.getReturns('AAPL');
 ```
 
 #### Example output
 ```javascript
-0P000000GY
+{
+  marketReturn5Years: 35.762864,
+  ticker: 'AAPL',
+  marketReturn1Year: 93.43269,
+  securityId: 'E0USA002US',
+  exchange: 'XNAS',
+  marketReturn3Years: 43.701513
+}
 ```
-
-### ```StockAPIService.getReturns(ticker)```
 
