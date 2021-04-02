@@ -345,3 +345,217 @@ sas.getGlobalIndices();
     
 
 ```
+
+### ```StockAPIService.getSummary()```
+
+Get market summary at request time
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getSummary();
+```
+
+#### Example output:
+```javascript
+{
+  MarketRegions: {
+    USA: [ [Object], [Object], [Object], [Object] ],
+    Europe: [ [Object], [Object], [Object], [Object] ],
+    Asia: [ [Object], [Object], [Object], [Object] ],
+    CAN: [ [Object], [Object], [Object], [Object] ]
+  },
+  Barometers: {
+    ThreeYears: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    OneYear: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    ThreeMonths: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    OneWeek: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    OneDay: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    OneMonth: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ]
+  },
+  Timestamp: '2021-04-02T00:53:24Z'
+} 
+
+```
+
+### ```StockAPIService.getRtdStock(ticker)```
+
+Get real-time data of a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getRtdStock('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  status: 'OK',
+  lastPrice: 123,
+  bid: 123,
+  bidSize: 17,
+  ask: 123.05,
+  askSize: 2,
+  lotSize: 100,
+  volume: 75089134,
+  recentTradingDayOpenPrice: 123.66,
+  dayRangeHigh: 124.18,
+  dayRangeLow: 122.49,
+  lastClose: 122.15,
+  priceOfTradeAfter: 123,
+  timeOfTradeAfter: '2021-04-01T20:14:54.000',
+  recentTradingDay: '2021-04-01',
+  lastUpdateTime: '2021-04-01T16:15:02.000',
+  recentTradingDayJulian: '01-04-2021',
+  tradingStatus: 'Post-Trading',
+  marketCap: 2064935808000,
+  dividendYield: 0.0066667,
+  yearRangeHigh: 145.09,
+  yearRangeLow: 59.225,
+  currencyCode: 'USD',
+  currencySymbol: '$',
+  listedCurrency: 'USD',
+  tradedCurrency: null,
+  avgVolume: 631326.3064516129,
+  exchangeID: 'XNAS',
+  exchangeName: 'NASDAQ',
+  exchangeTimeZone: 'EST',
+  type: 'Equity',
+  ts: '1617322494000',
+  dayChange: 0.85,
+  dayChangePer: 0.6959,
+  bidMarket: '16',
+  askMarket: '19',
+  originationMarket: '16',
+  message: '126.1.AAPL',
+  lastUpdateRealTimeDate: '01-04-2021',
+  lastUpdateRealTimeTime: '20:14:54.000',
+  nav: null,
+  oneDayReturn: null,
+  navLastDate: null,
+  navLastDate1: null,
+  navLastTime: null,
+  isBats: true
+}
+```
+
+### ```StockAPIService.getMiniChart(ticker)```
+
+Get real-time data of a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getMiniChart('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  iiv: null,
+  status: 'OK',
+  idsMessage: '126.1.AAPL',
+  lastPrice: 123,
+  priceOfTradeAfter: 123,
+  timeOfTradeAfter: '2021-04-01T20:14:54.000',
+  lastUpdateTime: '2021-04-01T16:15:02.000',
+  tradingStatus: 'Post-Trading',
+  dayChange: 0.85,
+  dayChangePer: 0.6959,
+  lastClose: 122.15,
+  exchangeId: 'XNAS',
+  ts: '1617322494000',
+  currencyCode: 'USD'
+}
+```
+
+### ```StockAPIService.getPriceFairValue(ticker)```
+
+Get fair value data of a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getPriceFairValue('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  _meta: {
+    responseStatus: '200700',
+    hint: 'Securities successfully returned',
+    performanceId: '0P000000GY'
+  },
+  columnDefs: [
+    '2013', '2014',
+    '2015', '2016',
+    '2017', '2018',
+    '2019', '2020',
+    'YTD'
+  ],
+  chart: {
+    chartDatums: { recent: [Object], yearly: [Array] },
+    isQual: true,
+    closePriceCurrency: null,
+    realtimeCurrency: 'USD',
+    lastCloseCurrency: 'USD',
+    fairValCurrency: 'USD'
+  },
+  table: { rows: [ [Object], [Object], [Object] ] },
+  userType: 'Free',
+  footer: {
+    asOfLabel: 'As of',
+    asOfDate: '2021-04-01T00:00:00.000',
+    indexLabel: 'Index:',
+    indexName: 'Morningstar US Market TR USD'
+  }
+}
+```
