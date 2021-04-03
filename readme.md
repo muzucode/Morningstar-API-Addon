@@ -1099,3 +1099,365 @@ sas.getCompetitors('AAPL');
 }
 
 ```
+
+### ```StockAPIService.getProfile(ticker)```
+
+Get profile of a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getProfile('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  '0P000000GY': {
+    ticker: { value: 'AAPL', filtered: false },
+    website: { value: 'https://www.apple.com', filtered: false },
+    headquarterCountry: { value: 'United States', filtered: false },      
+    contactEmail: { value: 'tgala@apple.com', filtered: false },
+    stockType: { value: 'Cyclical', filtered: false },
+    headquarterAddress1: { value: 'One Apple Park Way', filtered: false },
+    industry: { value: 'Consumer Electronics', filtered: false },
+    stockStarRating: {
+      value: '1',
+      filtered: true,
+      date: [Object],
+      text: [Object],
+      type: [Object]
+    },
+    fiscalYearEndDate: { value: '2021-09-30', filtered: false },
+    headquarterCity: { value: 'Cupertino', filtered: false },
+    headquarterState: { value: 'CA', filtered: false },
+    reportDate: { value: '2020-12-31', filtered: false },
+    phone: { value: '+1 408 996-1010', filtered: false },
+    universe: { value: 'EQ', filtered: false },
+    headquarterPostalCode: { value: '95014', filtered: false },
+    exchange: { value: 'XNAS', filtered: false },
+    companyProfile: {
+      value: "Apple designs a wide variety of consumer electronic devices, including smartphones (iPhone), tablets (iPad), PCs (Mac), smartwatches (Apple Watch), and TV boxes (Apple TV), among others. The iPhone makes up the majority of Apple’s total revenue. In addition, Apple offers its customers a variety of services such as Apple Music, iCloud, Apple Care, Apple TV+, Apple Arcade, Apple Card, and Apple Pay, among others. Apple's products run internally developed software and semiconductors, and the firm is well known for its integration of hardware, software and services. Apple's products are distributed online as well as through company-owned stores and third-party retailers. The company generates roughly 40% of its revenue from the Americas, with the remainder earned internationally.",
+      filtered: false
+    },
+    fax: { value: '+1 408 974-2483', filtered: false },
+    totalEmployees: { value: 147000, filtered: false },
+    sector: { value: 'Technology', filtered: false }
+  }
+}
+
+```
+
+### ```StockAPIService.getOwnership(ticker)```
+
+Get ownernship info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getOwnership('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  isRestricted: false,
+  userType: 'Free',
+  country: 'USA',
+  rows: [
+    {
+      secId: 'FOUSA00FQU',
+      name: 'Vanguard Total Stock Mkt Idx Inv',
+      totalSharesHeld: 2.5699409927129317,
+      totalAssets: 4.73305,
+      currentShares: 431444161,
+      changeAmount: -1051272,
+      changePercentage: -0.24307123724009358,
+      date: '2021-02-28T00:00:00.000',
+      trend: '_PO_',
+      starRating: '4'
+    },
+    {
+      secId: 'FOUSA00FS1',
+      name: 'Vanguard 500 Index Investor',
+      totalSharesHeld: 1.9419843322316004,
+      totalAssets: 6.02461,
+      currentShares: 326022194,
+      changeAmount: 5176211,
+      changePercentage: 1.613300859060467,
+      date: '2021-02-28T00:00:00.000',
+      trend: '_PO_',
+      starRating: '4'
+    },
+    ...
+  ],
+  columnDefs: [
+    { columnId: 'name', dataType: 'string' },
+    { columnId: 'starRating', dataType: 'string' },
+    { columnId: 'totalSharesHeld', dataType: 'number' },
+    { columnId: 'totalAssets', dataType: 'number' },
+    { columnId: 'trend', dataType: 'number' },
+    { columnId: 'currentShares', dataType: 'number' },
+    { columnId: 'changeAmount', dataType: 'number' },
+    { columnId: 'changePercentage', dataType: 'number' },
+    { columnId: 'date', dataType: 'string' }
+  ]
+}
+```
+
+### ```StockAPIService.getDividends(ticker)```
+
+Get dividend info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getDividends('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  rows: [
+    {
+      label: 'Dividend Per Share',
+      salDataId: 'dividends.per.share.label',
+      datum: [Array]
+    },
+    {
+      label: 'Trailing Dividend Yield %',
+      salDataId: 'trailing.dividends.yield.label',
+      datum: [Array],
+      percentage: true
+    },
+    {
+      label: 'Buyback Yield %',
+      salDataId: 'buyback.yield.label',
+      datum: [Array],
+      percentage: true
+    },
+    {
+      label: 'Total Yield %',
+      salDataId: 'total.yield.label',
+      datum: [Array],
+      percentage: true
+    },
+    {
+      label: 'Payout Ratio %',
+      salDataId: 'payout.ratio.label',
+      datum: [Array],
+      percentage: true
+    }
+  ],
+  columnDefs_labels: [
+    'tabular.data.label.column.year',
+    '2011',
+    '2012',
+    '2013',
+    '2014',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+    '2019',
+    '2020',
+    'dividends.headers.current',
+    'dividends.headers.oneyearttm',
+    'dividends.headers.fiveyear'
+  ],
+  dividendData: {
+    label: [
+      'exdividend.date.label',
+      'declaration.date.label',
+      'record.date.label',
+      'payable.date.label',
+      'dividend.type.label',
+      'dividend.amount.label'
+    ],
+    upcomingData: [],
+    dividendHistory: [ [Object], [Object], [Object], [Object], [Object] ]
+  },
+  quoteData: [
+    {
+      name: 'dividendYield',
+      label: 'Dividend Yield',
+      salDataId: 'dividend.yield.label',
+      date: '2021-04-03T00:00:00.000',
+      value: '0.0067'
+    },
+    {
+      name: 'divReinvestmentPlan',
+      label: 'Div Reinvestment Plan',
+      salDataId: 'div.reinvestment.plan.label',
+      date: '2021-02-05T00:00:00.000',
+      value: 'No'
+    }
+  ],
+  footer: {
+    asOfLabel: 'As of',
+    distributionCurrency: 'USD',
+    asOfDate: '2021-04-03T00:00:00.000'
+  }
+}
+```
+
+### ```StockAPIService.getShortInterest(ticker)```
+
+Get short interest info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getShortInterest('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  sharesOutstanding: 16788.096,
+  floatShares: 16778.3045,
+  sharesShorted: 107011007,
+  sharesShortedDate: '2021-03-15T05:00:00.000',
+  floatSharesShorted: 0.6378,
+  daysToConver: 1,
+  sharesShortedChanged: 6.1624,
+  previousSharesShortedDate: '2021-02-26T06:00:00.000'
+}
+```
+
+### ```StockAPIService.getHistories(ticker)```
+
+Get histories info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Array```
+
+#### Example input:
+```javascript 
+sas.getHistories('AAPL');
+```
+
+#### Example output:
+```javascript
+[
+  {
+    RequestKey: '0P000000GY',
+    '1D': [],
+    '3M': [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 354 more items
+    ],
+    '1Y': [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 543 more items
+    ],
+    '5Y': [
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    MAX: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 387 more items
+    ]
+  }
+]
+```
+
+### ```StockAPIService.getSplits(ticker)```
+
+Get splits info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getSplits('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  splitHistory: [
+    { date: '2020-08-31T05:00:00.000', ratio: '4:1' },
+    { date: '2014-06-09T05:00:00.000', ratio: '7:1' },
+    { date: '2005-02-28T06:00:00.000', ratio: '2:1' },
+    { date: '2000-06-21T05:00:00.000', ratio: '2:1' },
+    { date: '1987-06-16T05:00:00.000', ratio: '2:1' }
+  ],
+  splitOffHistory: []
+}
+```
