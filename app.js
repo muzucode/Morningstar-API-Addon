@@ -13,4 +13,4 @@ import sas from './Morningstar-API-Addon.js';
 //     console.log(headlines);
 // });
     
-sas.getPriceFairValue('AAPL');
+sas.getCompetitors('AAPL');
