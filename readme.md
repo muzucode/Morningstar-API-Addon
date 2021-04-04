@@ -1461,3 +1461,340 @@ sas.getSplits('AAPL');
   splitOffHistory: []
 }
 ```
+
+### ```StockAPIService.getMiniChartQuote(ticker)```
+
+Get mini chart quote info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getMiniChartQuote('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  status: 'OK',
+  idsMessage: '126.1.AAPL',
+  exchangeID: 'XNAS',
+  exchangeTimeZoneCode: 'EST',
+  exchangeTimeZoneOffset: '-4:00',
+  previousTradingDayClosePrice: 122.15,
+  recentTradingDay: '2021-04-01',
+  lastUpdateDay: '2021-04-01',
+  recentTradingDayOpenTime: '2021-04-01T13:30Z', 
+  recentTradingDayCloseTime: '2021-04-01T20:00Z',
+  recentTradingDayOpenPrice: 123.66,
+  exchangeName: 'NASDAQ',
+  priceOfTradeAfter: 123,
+  tradingStatus: 'Closed',
+  recentTradingDayTSPrices: [
+    {
+      dateGMT: '01-04-2021',
+      exchangeTime: '20:00',
+      openPrice: 122.977,
+      tradingVolume: 4746761,
+      gmtDateTime: '2021-04-01T20:00Z'
+    },
+    {
+      dateGMT: '01-04-2021',
+      exchangeTime: '19:55',
+      openPrice: 122.9,
+      tradingVolume: 2737351,
+      gmtDateTime: '2021-04-01T19:55Z'
+    },
+    ...
+  ],
+  chartStatus: 'OK',
+  marketOpenToday: true
+}
+```
+
+### ```StockAPIService.getValuation(ticker)```
+
+Get valuation info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getValuation('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  Collapsed: {
+    rows: [ [Object], [Object], [Object], [Object] ],
+    columnDefs: [
+      'Calendar', '2011',
+      '2012',     '2013',
+      '2014',     '2015',
+      '2016',     '2017',
+      '2018',     '2019',
+      '2020',     'Current',
+      '5-Yr',     'Index'
+    ],
+    columnDefs_labels: [
+      'tabular.data.label.column.year',
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      'valuation.headers.current',
+      'valuation.headers.fiveyear',
+      'valuation.headers.index'
+    ],
+    userType: null,
+    footer: {
+      asOfLabel: 'As of',
+      asOfDate: '2021-04-04T00:00:00.000',
+      indexLabel: 'Index:',
+      indexName: 'Morningstar US Market TR USD',
+      enterpriseValueCurrency: 'USD'
+    }
+  },
+  Expanded: {
+    rows: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    columnDefs: [
+      'Calendar', '2011',
+      '2012',     '2013',
+      '2014',     '2015',
+      '2016',     '2017',
+      '2018',     '2019',
+      '2020',     'Current',
+      '5-Yr',     'Index'
+    ],
+    columnDefs_labels: [
+      'tabular.data.label.column.year',
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      'valuation.headers.current',
+      'valuation.headers.fiveyear',
+      'valuation.headers.index'
+    ]
+  }
+}
+```
+
+### ```StockAPIService.getOperatingPerformance(ticker)```
+
+Get operating performance info for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Object```
+
+#### Example input:
+```javascript 
+sas.getOperatingPerformance('AAPL');
+```
+
+#### Example output:
+```javascript
+{
+  _meta: {
+    responseStatus: '200700',
+    hint: 'Securities successfully returned',
+    performanceId: '0P000000GY'
+  },
+  reported: {
+    reportType: 'Fiscal',
+    reportType_label: 'operating.performance.report.type',
+    columnDefs: [
+      '2011',  '2012', '2013',
+      '2014',  '2015', '2016',
+      '2017',  '2018', '2019',
+      '2020',  'TTM',  '5-Yr',
+      'Index'
+    ],
+    columnDefs_labels: [
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      'operating.performance.headers.oneyearttm',
+      'operating.performance.headers.fiveyear',
+      'operating.performance.headers.index'
+    ],
+    Collapsed: { rows: [Array] },
+    Expanded: { rows: [Array] }
+  },
+  restated: {
+    reportType: 'Fiscal',
+    reportType_label: 'operating.performance.report.type',
+    columnDefs: [
+      '2011',  '2012', '2013',
+      '2014',  '2015', '2016',
+      '2017',  '2018', '2019',
+      '2020',  'TTM',  '5-Yr',
+      'Index'
+    ],
+    columnDefs_labels: [
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      'operating.performance.headers.oneyearttm',
+      'operating.performance.headers.fiveyear',
+      'operating.performance.headers.index'
+    ],
+    Collapsed: { rows: [Array] },
+    Expanded: { rows: [Array] }
+  },
+  footer: {
+    indexLabel: 'Index:',
+    indexName: 'Morningstar US Market TR USD',
+    ebitdaCurrency: 'USD'
+  }
+}
+```
+
+### ```StockAPIService.getInstruments(insID)```
+
+Get instrument info for a security
+
+```insID``` | Type: ```String```
+
+Returns: ```Array```
+
+#### Example input:
+```javascript 
+sas.getInstruments('126.1.TSLA');
+```
+
+#### Example output:
+```javascript
+[
+  {
+    status: 'OK',
+    lastPrice: 661.75,
+    lastClose: 667.93,
+    tradingStatus: 'Closed',
+    marketCap: 635183056272,
+    currencyCode: 'USD',
+    currencySymbol: '$',
+    listedCurrency: 'USD',
+    tradedCurrency: null,
+    exchangeID: 'XNAS',
+    exchangeName: 'NASDAQ',
+    exchangeTimeZone: 'EST',
+    type: 'Equity',
+    dayChange: -6.18,
+    dayChangePer: -0.9252,
+    message: '126.1.TSLA'
+  }
+]
+```
+
+### ```StockAPIService.getDetail(ticker)```
+
+Get details for a security
+
+```ticker``` | Type: ```String```
+
+Returns: ```Array```
+
+#### Example input:
+```javascript 
+sas.getDetail('AAPL');
+```
+
+#### Example output:
+```javascript
+[
+  {
+    Name: 'Apple Inc',
+    Currency: 'USD',
+    Exchange: 'XNAS',
+    Type: 'ST',
+    TypeName: 'Stock',
+    ExchangeShortName: 'NASDAQ',
+    ExchangeTimeZoneOffsetFromUTCInSeconds: -14400,
+    PerformanceId: '0P000000GY',
+    ShareClassId: '0P000000GY',
+    FundShareClassId: '0P000000GY',
+    InceptionDate: '1980-12-12',
+    Sector: 'Technology',
+    Industry: 'Consumer Electronics',
+    RequestKey: '0P000000GY',
+    Detail: {
+      StarRating: 2,
+      EquityStyle: 2,
+      IsStarRatingBasedOnExtendedPerformance: false,
+      Yield: 0.67,
+      ConsiderBuying: 'Premium',
+      ConsiderSelling: 'Premium',
+      CreditRating: 'Premium',
+      RevenueTTM: 294135,
+      PriceFairValue: 'Premium',
+      ForwardDividendYield: 0.67,
+      PriceProspectiveEarnings: 28.7356,
+      PriceBook: 31.181079,
+      PriceSales: 7.256192,
+      PriceCashFlow: 24.002203,
+      ReturnOnInvestmentCapital: 33.66,
+      OverUnderValued: 'Premium',
+      ReturnOnAssets: [Object],
+      ReturnOnEquity: [Object],
+      EarningsPerShare: [Object],
+      OperatingMargin: [Object],
+      NetMargin: [Object],
+      FreeCashFlowMargin: [Object],
+      QuarterlyEarningsPerShare: [Object],
+      Valuation: [Object],
+      FairValue: 98,
+      Assessment: 'Overvalued',
+      BestRatingType: 'Qual'
+    },
+    RegionAndTicker: 'USA:AAPL',
+    Instrument: '126.1.AAPL'
+  }
+]
+```
+
+### ```StockAPIService.getArticlesList(ticker)```
+
+Get list of articles for a security
+
+_Refer to the API on RapidAPI for further documentation and example of use_
+
+### ```StockAPIService.getArticlesDetails(alID)```
+
+Get details of article for a security (based on article ID)
+
+_Refer to the API on RapidAPI for further documentation and example of use_
+
+

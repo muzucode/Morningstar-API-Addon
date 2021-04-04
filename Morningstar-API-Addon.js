@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = '[API KEY GOES HERE]';
+const api_key = '[redacted]';
 
 //Object containing all the endpoints/params
 const req_set = {
@@ -772,30 +772,6 @@ class StockAPIService {
 			method: 'GET',
 			url: req_set.splt.url,
 			params: req_set.splt.params(id),
-			headers: {
-			  'x-rapidapi-key': api_key,
-			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
-			}
-		  };
-		  
-		  var data;
-		  await axios.request(options).then(function (response) {
-			data = response.data;
-			console.log(response.data);
-		  }).catch(function (error) {
-			console.error(error);
-		  });
-
-		  return(data);
-	};
-
-	async getMiniChartQuote(ticker){
-		const id = await this.getID(ticker);
-
-		const options = {
-			method: 'GET',
-			url: req_set.mcqt.url,
-			params: req_set.mcqt.params(id),
 			headers: {
 			  'x-rapidapi-key': api_key,
 			  'x-rapidapi-host': 'morning-star.p.rapidapi.com'
