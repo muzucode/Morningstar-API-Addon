@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API key goes here
-const api_key = 'redacted';
+const api_key = '[API KEY GOES HERE]';
 
 //Object containing all the endpoints/params
 const req_set = {
