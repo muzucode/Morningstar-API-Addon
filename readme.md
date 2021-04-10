@@ -58,7 +58,7 @@ sas.getTimeSeries('AAPL');
 
 
 
-## Documentation (Work in Progress)
+## Documentation
 
 ### ```StockAPIService.getReturns(ticker)```
 
